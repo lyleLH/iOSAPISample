@@ -19,18 +19,13 @@
     // Do any additional setup after loading the view, typically from a nib.
     _myView = [[MTTView alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
     _myView.backgroundColor = [UIColor lightGrayColor];
-
     SEL method ;
 //    method = @selector(shootWithDelegate);
     method = @selector(shootWithBlock);
     UITapGestureRecognizer * tap  = [[UITapGestureRecognizer alloc] initWithTarget:self action:method];
     [_myView addGestureRecognizer:tap];
     [self.view addSubview:_myView];
-    
-    
 }
-
-
 
 /**
  以Block的形式设计的API 使用示例
@@ -39,9 +34,7 @@
     [_myView startCaculationCompletionHandle:^(NSUInteger number) {
         NSLog(@"%ld",number);
     }];
-    
 }
-
 
 /**
  以委托的形式设计的API 使用示例
@@ -50,7 +43,6 @@
     _myView.delegate  = self;
     [_myView startCaculation];
 }
-
 
 #pragma mark -- MTTViewDelegate Method
 - (void)geiViewData:(NSInteger)number  {
